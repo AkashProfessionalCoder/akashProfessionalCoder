@@ -10,7 +10,7 @@
 ---
 
 ## 🚀 About Me
-- 🔭 Currently working as **Product Engineer** at **Samaaro**
+- 🔭 Currently working as **Product Engineer** at <a href="https://samaaro.com">**Samaaro**</a>
 - 🌱 Learning **Advanced Backend Development** with Node.js & MongoDB
 - 💬 Ask me about **Flutter, Dart, State Management, and Mobile App Architecture**
 - 🎯 Goal for 2025: Build an **open-source Flutter package** to improve developer productivity
@@ -38,7 +38,7 @@
 ## 📌 Featured Projects
 
 ### **Samaaro – Attendee App** *(Android)*
-- Event registration, real-time agenda updates, attendee networking
+- Event registration, real-time agenda updates, and attendee networking
 - Interactive **social wall** for community engagement
 
 ### **Samaaro – Reception Dashboard** *(Android | iOS)*
@@ -74,6 +74,27 @@
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail" />
   </a>
 </p>
+
+ <hr/>
+ 
+<h2 align="center">⚒️ Languages-Frameworks-Tools ⚒️</h2>
+<br/>
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=flutter,dart,apple,gradle,html,css,javascript,nodejs,express,c,java" />
+    <img src="https://skillicons.dev/icons?i=vscode,androidstudio,eclipse,github,gitlab,git,figma,discord" />
+    <img src="https://skillicons.dev/icons?i=firebase,graphql,mysql,mongodb" /><br>
+</div>
+
+<br/>
+<hr/>
+
+<div align="center">
+  <h2>🐍 My Contributions 🐍</h2>
+  <br>
+  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg" />
+  
+</div>
+
 
 ---
 
