@@ -3,7 +3,7 @@
 <h3 align="center">Senior Flutter Developer | Cross-Platform App Specialist</h3>
 
 <p align="center">
-  📍 Bangalore, Karnataka, India (Native: Cuddalore, Tamil Nadu) <br>
+  📍 Bangalore, Karnataka, India <br>
   💼 3+ years of experience building high-performance apps for Android, iOS, Web & Windows
 </p>
 
