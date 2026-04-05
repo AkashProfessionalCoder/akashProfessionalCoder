@@ -1,10 +1,10 @@
 <!-- Profile Header -->
 <h1 align="center">Hi 👋, I'm Akash Senthil</h1>
-<h3 align="center">Senior Flutter Developer | Cross-Platform App Specialist</h3>
+<h3 align="center">Mobile Engineer | Cross-Platform App Specialist</h3>
 
 <p align="center">
   📍 Bangalore, Karnataka, India <br>
-  💼 3+ years of experience building high-performance apps for Android, iOS, Web & Windows
+  💼 3.5+ years of experience building high-performance apps for Android, iOS, Web & Windows
 </p>
 
 ---
