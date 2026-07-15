@@ -4,7 +4,7 @@
 
 <p align="center">
   📍 Bangalore, Karnataka, India <br>
-  💼 3.5+ years of experience building high-performance apps for Android, iOS, Web & Windows
+  💼 4 years of experience building high-performance apps for Android, iOS, Web & Windows
 </p>
 
 ---
