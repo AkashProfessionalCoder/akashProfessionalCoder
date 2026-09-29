@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="110" viewBox="0 0 1200 110" role="img" aria-label="">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#54c5f8"/><stop offset=".5" stop-color="#8a5cff"/><stop offset="1" stop-color="#ff5fa2"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#g)" opacity=".45">
+    <animate attributeName="d" dur="8s" repeatCount="indefinite"
+      values="M0 40 C200 0 400 80 600 40 C800 0 1000 80 1200 40 V110 H0Z;
+              M0 40 C200 80 400 0 600 40 C800 80 1000 0 1200 40 V110 H0Z;
+              M0 40 C200 0 400 80 600 40 C800 0 1000 80 1200 40 V110 H0Z"/>
+  </path>
+  <path fill="url(#g)" d="M0 70 C250 40 450 100 700 66 C900 40 1050 90 1200 64 V110 H0Z"/>
+</svg>
