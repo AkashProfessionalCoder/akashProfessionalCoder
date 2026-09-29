@@ -23,7 +23,7 @@
 
 <p align="center">
   <a href="https://akash-senthil-portfolio.vercel.app/"><img src="https://img.shields.io/badge/🌐_Portfolio-B15CFF?style=for-the-badge" alt="Portfolio" /></a>
-  <a href="https://www.linkedin.com/in/akashprofessionalcoder"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://www.linkedin.com/in/akashprocoder"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://medium.com/@akashprocoder"><img src="https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>
   <a href="mailto:akashprocoder@gmail.com"><img src="https://img.shields.io/badge/Say_hi-FF5FA2?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 </p>

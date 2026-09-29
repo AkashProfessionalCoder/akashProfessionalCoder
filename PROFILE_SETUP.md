@@ -10,11 +10,9 @@ These are the things only you can change on GitHub. The READMEs and workflows in
 - [ ] **Company:** `@Samaaro` (or plain "Samaaro")
 - [ ] **Location:** Bengaluru, India
 - [ ] **Website:** https://akash-senthil-portfolio.vercel.app/ (switch to `akashsenthil.dev` once that domain is live)
-- [ ] **Social accounts:** LinkedIn, Medium (`https://medium.com/@akashprocoder`)
+- [ ] **Social accounts:** LinkedIn (`https://www.linkedin.com/in/akashprocoder`), Medium (`https://medium.com/@akashprocoder`)
 - [ ] **Status** (click the smiley on your avatar), e.g. 📱 "Shipping Flutter apps @ Samaaro"
 - [ ] **Pronouns:** your choice
-
-> ⚠️ **Which LinkedIn URL is right?** This README links to `linkedin.com/in/akashprofessionalcoder`, but your portfolio's config (`src/app/config/appConfig.ts`) uses `linkedin.com/in/akashprocoder`. Keep whichever one is correct and update the other file.
 
 ## 2. Pinned repositories (Customize your pins)
 
