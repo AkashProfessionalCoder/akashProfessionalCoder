@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="200" viewBox="0 0 840 200" role="img" aria-label="GitHub stats for AkashProfessionalCoder">
+  <rect x="0.5" y="0.5" width="839" height="199" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="28" y="24" font-size="11" font-weight="600" letter-spacing="1" fill="#58a6ff">GITHUB ACTIVITY</text>
+    <text x="28" y="56" font-size="26" font-weight="700" fill="#e6edf3">276</text>
+    <text x="28" y="76" font-size="12" fill="#9198a1">contributions · last year</text>
+    <text x="178" y="56" font-size="26" font-weight="700" fill="#e6edf3">74</text>
+    <text x="178" y="76" font-size="12" fill="#9198a1">active days</text>
+    <text x="328" y="56" font-size="26" font-weight="700" fill="#e6edf3">5d</text>
+    <text x="328" y="76" font-size="12" fill="#9198a1">longest streak</text>
+    <text x="28" y="122" font-size="26" font-weight="700" fill="#e6edf3">33</text>
+    <text x="28" y="142" font-size="12" fill="#9198a1">public repos</text>
+    <text x="178" y="122" font-size="26" font-weight="700" fill="#e6edf3">33</text>
+    <text x="178" y="142" font-size="12" fill="#9198a1">pull requests</text>
+    <text x="328" y="122" font-size="26" font-weight="700" fill="#e6edf3">1</text>
+    <text x="328" y="142" font-size="12" fill="#9198a1">stars earned</text>
+    <line x1="472" y1="24" x2="472" y2="176" stroke="#30363d"/>
+    <text x="500" y="24" font-size="11" font-weight="600" letter-spacing="1" fill="#58a6ff">TOP LANGUAGES</text>
+    <clipPath id="bar"><rect x="500" y="46" width="312" height="10" rx="5"/></clipPath>
+    <rect x="500" y="46" width="312" height="10" rx="5" fill="#21262d"/>
+    <g clip-path="url(#bar)"><rect x="500" y="46" width="128.8" height="10" fill="#f1e05a"/><rect x="628.7769012769971" y="46" width="121.6" height="10" fill="#00B4AB"/><rect x="750.421472488072" y="46" width="33.0" height="10" fill="#F05138"/><rect x="783.449750815387" y="46" width="10.8" height="10" fill="#3178c6"/><rect x="794.24243677494" y="46" width="8.5" height="10" fill="#b07219"/></g>
+    <circle cx="506" cy="82" r="5" fill="#f1e05a"/>
+    <text x="518" y="86" font-size="13" fill="#e6edf3">JavaScript</text>
+    <text x="812" y="86" font-size="13" fill="#9198a1" text-anchor="end">41.3%</text>
+    <circle cx="506" cy="102" r="5" fill="#00B4AB"/>
+    <text x="518" y="106" font-size="13" fill="#e6edf3">Dart</text>
+    <text x="812" y="106" font-size="13" fill="#9198a1" text-anchor="end">39.0%</text>
+    <circle cx="506" cy="122" r="5" fill="#F05138"/>
+    <text x="518" y="126" font-size="13" fill="#e6edf3">Swift</text>
+    <text x="812" y="126" font-size="13" fill="#9198a1" text-anchor="end">10.6%</text>
+    <circle cx="506" cy="142" r="5" fill="#3178c6"/>
+    <text x="518" y="146" font-size="13" fill="#e6edf3">TypeScript</text>
+    <text x="812" y="146" font-size="13" fill="#9198a1" text-anchor="end">3.5%</text>
+    <circle cx="506" cy="162" r="5" fill="#b07219"/>
+    <text x="518" y="166" font-size="13" fill="#e6edf3">Java</text>
+    <text x="812" y="166" font-size="13" fill="#9198a1" text-anchor="end">2.7%</text>
+  </g>
+</svg>
