@@ -1,0 +1,22 @@
+name: Latest Medium Posts
+
+# Refreshes the BLOG-POST-LIST block in both README variants.
+
+on:
+  schedule:
+    - cron: "15 19 * * *"   # Daily at 00:45 IST
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: "https://medium.com/feed/@akashprocoder"
+          readme_path: "./README.md,./README-creative.md"
+          max_post_count: 4
+          commit_message: "chore: refresh latest Medium posts"

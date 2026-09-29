@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="48" viewBox="0 0 640 48" role="img" aria-label="Flutter Engineer · White-label app platforms · CI/CD with Fastlane &amp; Shorebird · Namma Flutter core team">
+  <style>
+    text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 22px; font-weight: 600; fill: #b15cff; }
+    @media (prefers-color-scheme: dark) { text { fill: #54c5f8; } }
+    .line { opacity: 0; clip-path: inset(0 100% 0 0); }
+    .l1 { animation: type 12s steps(24) infinite 0s; }
+    .l2 { animation: type 12s steps(28) infinite 3s; }
+    .l3 { animation: type 12s steps(34) infinite 6s; }
+    .l4 { animation: type 12s steps(30) infinite 9s; }
+    @keyframes type {
+      0%      { opacity: 1; clip-path: inset(0 100% 0 0); }
+      12%     { opacity: 1; clip-path: inset(0 0 0 0); }
+      22%     { opacity: 1; clip-path: inset(0 0 0 0); }
+      24.99%  { opacity: 1; clip-path: inset(0 100% 0 0); }
+      25%,100%{ opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .line { animation: none; } .l1 { opacity: 1; clip-path: none; } }
+  </style>
+  <text class="line l1" x="320" y="32" text-anchor="middle">&gt; Flutter Engineer_</text>
+  <text class="line l2" x="320" y="32" text-anchor="middle">&gt; White-label app platforms_</text>
+  <text class="line l3" x="320" y="32" text-anchor="middle">&gt; CI/CD with Fastlane + Shorebird_</text>
+  <text class="line l4" x="320" y="32" text-anchor="middle">&gt; Namma Flutter core team_</text>
+</svg>

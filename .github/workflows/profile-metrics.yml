@@ -1,0 +1,60 @@
+name: Generate Profile Metrics
+
+# Builds the stats images used by README.md and README-creative.md and
+# publishes them to the `metrics` branch. Everything is self-hosted, so the
+# profile doesn't depend on rate-limited public card services, and the
+# default GITHUB_TOKEN is all it needs.
+
+on:
+  schedule:
+    - cron: "0 19 * * *"   # Daily at 00:30 IST (19:00 UTC)
+  workflow_dispatch:
+  push:
+    branches: [main, dev]
+    paths:
+      - ".github/workflows/profile-metrics.yml"
+      - "scripts/stats-card.mjs"
+      - "profile.config.json"
+
+concurrency:
+  group: profile-metrics
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Profile card and stats cards (light + dark)
+        run: node scripts/stats-card.mjs dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: 3D contribution graph
+        uses: yoshi389111/github-profile-3d-contrib@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Collect outputs
+        run: |
+          cp -r profile-3d-contrib dist/
+          ls -R dist
+
+      - name: Publish to `metrics` branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: metrics
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
