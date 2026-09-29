@@ -1,0 +1,33 @@
+{
+  "_comment": "Content for the profile card at the top of README.md. Edit freely: the card is re-rendered by .github/workflows/profile-metrics.yml. {uptime} becomes time since careerStart. The GitHub section is filled in automatically.",
+  "handle": "akash@senthil",
+  "careerStart": "2022-10-01",
+  "sections": [
+    {
+      "rows": [
+        ["OS", "Flutter · Android · iOS · Web · Desktop"],
+        ["Uptime", "{uptime} shipping mobile apps"],
+        ["Role", "Product Engineer @ Samaaro"],
+        ["Location", "Bengaluru, India"],
+        ["Shipped", "7+ production apps · App Store & Play Store"]
+      ]
+    },
+    {
+      "rows": [
+        ["Stack.Mobile", "Flutter, Dart, Kotlin, Swift"],
+        ["Stack.State", "BLoC, Riverpod, GetX, Provider"],
+        ["Stack.Delivery", "Fastlane, Shorebird OTA, GitHub Actions"],
+        ["Stack.Backend", "Node.js, Express, MongoDB, Firebase"],
+        ["Community", "Core team @ Namma Flutter · 5+ talks"]
+      ]
+    },
+    {
+      "title": "Contact",
+      "rows": [
+        ["Email", "akashprocoder@gmail.com"],
+        ["LinkedIn", "in/akashprocoder"],
+        ["Web", "akash-senthil-portfolio.vercel.app"]
+      ]
+    }
+  ]
+}

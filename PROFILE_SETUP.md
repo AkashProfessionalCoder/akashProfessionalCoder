@@ -59,13 +59,17 @@ Archive these (Settings → Danger Zone → Archive) or make them private. They'
 
 No personal access token is needed. Everything runs on the default `GITHUB_TOKEN`.
 
-## 6. Switching the default view
+## 6. Editing the profile card
+
+The terminal-style card at the top of `README.md` is generated from **`profile.config.json`**. Edit the rows there, for example a new role, stack or contact. The workflow re-renders the card on the next push to `main` or `dev`. The GitHub stats rows and "Uptime" (counted from `careerStart`) update themselves.
+
+## 7. Switching the default view
 
 `README.md` (Professional) is what your profile shows. To make **Creative** the default:
 1. Rename `README.md` → `README-professional.md`, and `README-creative.md` → `README.md`.
 2. In both files, update the toggle `href`s at the top so each badge points to the other file.
 
-## 7. Achievements you can unlock naturally
+## 8. Achievements you can unlock naturally
 
 - **Pair Extraordinaire:** co-author a commit (add a `Co-authored-by:` line) on a merged PR
 - **Starstruck:** a repo reaching 16 stars (pin and share `dev_folio`!)

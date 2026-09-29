@@ -1,4 +1,6 @@
-// Renders self-hosted GitHub stats cards (light + dark) for the profile README.
+// Renders the self-hosted profile images (light + dark) for the READMEs:
+//   profile-card.svg — terminal-style card for README.md, content from profile.config.json
+//   stats.svg        — stats + top languages card for README-creative.md
 //
 // Usage:
 //   GITHUB_TOKEN=... USERNAME=octocat node scripts/stats-card.mjs dist
@@ -18,6 +20,7 @@ const IGNORED_LANGS = new Set(["HTML", "CSS", "CMake", "C++", "C", "Objective-C"
 const QUERY = `query($login: String!) {
   user(login: $login) {
     name
+    avatarUrl(size: 240)
     followers { totalCount }
     pullRequests { totalCount }
     repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PUBLIC) {
@@ -90,6 +93,7 @@ function summarize({ user }) {
     repos: user.repositories.totalCount,
     prs: user.pullRequests.totalCount,
     followers: user.followers.totalCount,
+    avatarUrl: user.avatarUrl,
     top,
   };
 }
@@ -154,8 +158,96 @@ function render(s, t) {
 `;
 }
 
+// ---- Profile card (neofetch-style) ----------------------------------------
+
+const CARD_THEMES = {
+  light: { bg: "#f6f8fa", border: "#d0d7de", text: "#1f2328", muted: "#8c959f", key: "#953800", value: "#0a3069", accent: "#0969da" },
+  dark: { bg: "#161b22", border: "#30363d", text: "#e6edf3", muted: "#6e7681", key: "#ffa657", value: "#a5d6ff", accent: "#58a6ff" },
+};
+
+function uptime(start, now = new Date()) {
+  const s = new Date(start);
+  let months = (now.getFullYear() - s.getFullYear()) * 12 + (now.getMonth() - s.getMonth());
+  if (now.getDate() < s.getDate()) months--;
+  const y = Math.floor(months / 12), m = months % 12;
+  const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+  return m ? `${plural(y, "year")}, ${plural(m, "month")}` : plural(y, "year");
+}
+
+async function avatarDataUri(url) {
+  if (!url) return null;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const type = res.headers.get("content-type") ?? "image/png";
+    return `data:${type};base64,${Buffer.from(await res.arrayBuffer()).toString("base64")}`;
+  } catch {
+    return null;
+  }
+}
+
+function renderProfileCard(cfg, s, avatar, t) {
+  const W = 1000, X = 340, KEY_W = 150, LINE = 22, RULE_END = W - 36;
+  const up = uptime(cfg.careerStart);
+  const langs = s.top.slice(0, 3).map((l) => `${l.name} ${Math.round(l.pct)}%`).join(" · ");
+  const sections = [
+    ...cfg.sections,
+    {
+      title: "GitHub",
+      rows: [
+        ["Repos", `${s.repos} public · ${s.stars} star${s.stars === 1 ? "" : "s"} · ${s.prs} pull requests`],
+        ["Contributions", `${s.contributions} in the last year · ${s.activeDays} active days`],
+        ["Languages", langs],
+      ],
+    },
+  ];
+
+  const lines = [];
+  let y = 52;
+  const rule = (label) => {
+    const labelW = label.length * 9.2 + 24;
+    lines.push(`<text x="${X}" y="${y}" fill="${t.accent}" font-weight="700">${esc(label)}</text>
+    <line x1="${X + labelW}" y1="${y - 5}" x2="${RULE_END}" y2="${y - 5}" stroke="${t.border}" stroke-width="1.5"/>`);
+    y += LINE + 4;
+  };
+  rule(cfg.handle);
+  for (const [i, sec] of sections.entries()) {
+    if (sec.title) {
+      if (i) y += 6;
+      rule(sec.title);
+    } else if (i) y += 12;
+    for (const [k, v] of sec.rows) {
+      lines.push(`<text x="${X}" y="${y}"><tspan fill="${t.key}">${esc(k)}</tspan><tspan fill="${t.muted}">:</tspan></text>
+    <text x="${X + KEY_W}" y="${y}" fill="${t.value}">${esc(String(v).replace("{uptime}", up))}</text>`);
+      y += LINE;
+    }
+  }
+  const H = y + 18;
+  const cy = H / 2, r = 120;
+  const avatarSvg = avatar
+    ? `<clipPath id="av"><circle cx="170" cy="${cy}" r="${r}"/></clipPath>
+  <image href="${avatar}" x="${170 - r}" y="${cy - r}" width="${r * 2}" height="${r * 2}" clip-path="url(#av)" preserveAspectRatio="xMidYMid slice"/>
+  <circle cx="170" cy="${cy}" r="${r}" fill="none" stroke="${t.border}" stroke-width="2"/>`
+    : `<circle cx="170" cy="${cy}" r="${r}" fill="${t.border}"/>`;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(cfg.handle)}: ${esc(sections[0].rows.map((r) => r[1]).join(", "))}">
+  <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${t.bg}" stroke="${t.border}"/>
+  <circle cx="26" cy="22" r="5" fill="#ff5f56"/><circle cx="44" cy="22" r="5" fill="#ffbd2e"/><circle cx="62" cy="22" r="5" fill="#27c93f"/>
+  ${avatarSvg}
+  <g font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15">
+    ${lines.join("\n    ")}
+  </g>
+</svg>
+`;
+}
+
 const stats = summarize(await fetchData());
+const config = JSON.parse(readFileSync(new URL("../profile.config.json", import.meta.url), "utf8"));
+const avatar = await avatarDataUri(stats.avatarUrl);
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "stats.svg"), render(stats, THEMES.light));
 writeFileSync(join(outDir, "stats-dark.svg"), render(stats, THEMES.dark));
-console.log("Rendered stats cards:", JSON.stringify(stats));
+writeFileSync(join(outDir, "profile-card.svg"), renderProfileCard(config, stats, avatar, CARD_THEMES.light));
+writeFileSync(join(outDir, "profile-card-dark.svg"), renderProfileCard(config, stats, avatar, CARD_THEMES.dark));
+const { avatarUrl, ...summary } = stats;
+console.log("Rendered profile images:", JSON.stringify(summary));
