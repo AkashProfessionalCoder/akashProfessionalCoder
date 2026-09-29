@@ -61,32 +61,30 @@ function summarize({ user }) {
     run = d.contributionCount > 0 ? run + 1 : 0;
     longest = Math.max(longest, run);
   }
-  // Current streak: today with no contributions yet doesn't break it.
-  let current = 0;
-  for (let i = days.length - 1; i >= 0; i--) {
-    if (days[i].contributionCount > 0) current++;
-    else if (i === days.length - 1) continue;
-    else break;
-  }
+  const activeDays = days.filter((d) => d.contributionCount > 0).length;
 
+  // Rank by sqrt(bytes) * sqrt(repo count) so one repo with vendored or bundled
+  // code can't dominate the chart (same idea as github-readme-stats' weights).
   const langs = new Map();
   for (const r of repos) {
     for (const { size, node } of r.languages.edges) {
       if (IGNORED_LANGS.has(node.name)) continue;
-      const prev = langs.get(node.name) ?? { size: 0, color: node.color ?? "#8b949e" };
+      const prev = langs.get(node.name) ?? { size: 0, count: 0, color: node.color ?? "#8b949e" };
       prev.size += size;
+      prev.count += 1;
       langs.set(node.name, prev);
     }
   }
-  const total = [...langs.values()].reduce((a, l) => a + l.size, 0) || 1;
-  const top = [...langs.entries()]
-    .sort((a, b) => b[1].size - a[1].size)
+  const weighted = [...langs.entries()].map(([name, l]) => ({ name, color: l.color, w: Math.sqrt(l.size) * Math.sqrt(l.count) }));
+  const total = weighted.reduce((a, l) => a + l.w, 0) || 1;
+  const top = weighted
+    .sort((a, b) => b.w - a.w)
     .slice(0, 5)
-    .map(([name, l]) => ({ name, color: l.color, pct: (l.size / total) * 100 }));
+    .map((l) => ({ name: l.name, color: l.color, pct: (l.w / total) * 100 }));
 
   return {
     contributions: user.contributionsCollection.contributionCalendar.totalContributions,
-    current,
+    activeDays,
     longest,
     stars: repos.reduce((a, r) => a + r.stargazerCount, 0),
     repos: user.repositories.totalCount,
@@ -107,7 +105,7 @@ function render(s, t) {
   const W = 840, H = 200;
   const tiles = [
     [s.contributions, "contributions · last year"],
-    [`${s.current}d`, "current streak"],
+    [s.activeDays, "active days"],
     [`${s.longest}d`, "longest streak"],
     [s.repos, "public repos"],
     [s.prs, "pull requests"],
