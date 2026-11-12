@@ -1,11 +1,11 @@
 <!-- Profile Header -->
 <h1 align="center">Hi 👋, I'm Akash Senthil</h1>
-<h3 align="center">Mobile Engineer | Cross-Platform App Specialist</h3>
-
 <p align="center">
-  📍 Bangalore, Karnataka, India <br>
-  💼 4 years of experience building high-performance apps for Android, iOS, Web & Windows
+  📍 Hyderabad, Telengana, India <br>  
 </p>
+<p align="center">Software Engineer at 9x Technology, <br> 💼 4 years of experience building production-grade Flutter apps from architecture to App Store/Play Store release. Core Team Member at Namma Flutter.</p>
+
+<p align="center">🔗 Portfolio: https://akashsenthil.tech</p>
 
 ---
 
